@@ -1688,7 +1688,7 @@ export default class DevServer {
       delete origUrl.search;
       origUrl.pathname = dest;
       Object.assign(origUrl.query, uri_args);
-      const newUrl = url.format(origUrl);
+      const newUrl = url.format(origUrl).replace(/=$/, '');
       debug(
         `Checking build result's ${buildResult.routes.length} \`routes\` to match ${newUrl}`
       );
